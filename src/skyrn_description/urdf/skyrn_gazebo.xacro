@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<robot name="F450" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="body_color" value="Gazebo/Silver"/>
+
+  <!-- ===================== -->
+  <!-- Base Link (Physics Root) -->
+  <!-- ===================== -->
+  <gazebo reference="base_link">
+    <material>${body_color}</material>
+    <gravity>true</gravity>
+    <self_collide>false</self_collide>
+
+    <!-- Air + rotational damping -->
+    <linearDamping>0.02</linearDamping>
+    <angularDamping>0.02</angularDamping>
+  </gazebo>
+
+  <!-- ===================== -->
+  <!-- Structural Parts -->
+  <!-- ===================== -->
+
+  <gazebo reference="arm_1">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <gazebo reference="arm_2">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <gazebo reference="arm_3">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <gazebo reference="arm_4">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <gazebo reference="bottomplate_1">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <!-- ===================== -->
+  <!-- Motors (No friction) -->
+  <!-- ===================== -->
+
+  <gazebo reference="_Motor_1">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <gazebo reference="_Motor_2">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <gazebo reference="_Motor_3">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <gazebo reference="_Motor_4">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <!-- ===================== -->
+  <!-- Propellers (CRITICAL FIX) -->
+  <!-- ===================== -->
+
+  <gazebo reference="propeller_1">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+    <collision>false</collision>
+  </gazebo>
+
+  <gazebo reference="propeller_2">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+    <collision>false</collision>
+  </gazebo>
+
+  <gazebo reference="propeller_3">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+    <collision>false</collision>
+  </gazebo>
+
+  <gazebo reference="propeller_4">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+    <collision>false</collision>
+  </gazebo>
+
+  <!-- ===================== -->
+  <!-- Electronics -->
+  <!-- ===================== -->
+
+  <gazebo reference="battery_1">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <gazebo reference="case_1">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <gazebo reference="pixhawk_1">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <gazebo reference="raspi5_1">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <!-- ===================== -->
+  <!-- Sensors -->
+  <!-- ===================== -->
+
+  <gazebo reference="optical_hybro_1">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <gazebo reference="cam_mount_1">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+  <gazebo reference="camera_1">
+    <material>${body_color}</material>
+    <self_collide>false</self_collide>
+  </gazebo>
+
+</robot>

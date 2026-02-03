@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<robot name="F450" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <ros2_control name="RobotSystem" type="system">
+
+    <!-- =============================== -->
+    <!-- Simulator Selection -->
+    <!-- =============================== -->
+    <xacro:if value="$(arg is_ignition)">
+      <hardware>
+        <plugin>ign_ros2_control/IgnitionSystem</plugin>
+      </hardware>
+    </xacro:if>
+
+    <xacro:unless value="$(arg is_ignition)">
+      <hardware>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </hardware>
+    </xacro:unless>
+
+    <!-- =============================== -->
+    <!-- Propeller Joints -->
+    <!-- =============================== -->
+
+    <joint name="Revolute_20">
+      <command_interface name="velocity">
+        <param name="min">-1000</param>
+        <param name="max">1000</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="Revolute_21">
+      <command_interface name="velocity">
+        <param name="min">-1000</param>
+        <param name="max">1000</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="Revolute_23">
+      <command_interface name="velocity">
+        <param name="min">-1000</param>
+        <param name="max">1000</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="Revolute_24">
+      <command_interface name="velocity">
+        <param name="min">-1000</param>
+        <param name="max">1000</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+  </ros2_control>
+
+</robot>

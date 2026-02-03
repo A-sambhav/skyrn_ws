@@ -1,0 +1,19 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 400
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    propeller_velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
+
+
+propeller_velocity_controller:
+  ros__parameters:
+    joints:
+      - Revolute_20
+      - Revolute_21
+      - Revolute_23
+      - Revolute_24

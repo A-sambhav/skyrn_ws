@@ -1,0 +1,573 @@
+<?xml version="1.0" ?>
+<robot name="F450" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:arg name="is_ignition" default="false"/>
+
+<!--xacro:include filename="$(find F450_description)/urdf/materials.xacro" -->
+<xacro:include filename="$(find skyrn_description)/urdf/skyrn_ros2_control.xacro" />
+<xacro:include filename="$(find skyrn_description)/urdf/skyrn_gazebo.xacro" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0543337048447064 -0.013298355942825918 0.05378858506314188" rpy="0 0 0"/>
+    <mass value="0.013756910927204945"/>
+    <inertia ixx="1.2e-05" iyy="1.2e-05" izz="2.5e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_3">
+  <inertial>
+    <origin xyz="-0.04650493146235814 -0.06312344624100254 -0.009078858103441653" rpy="0 0 0"/>
+    <mass value="0.03987411557229608"/>
+    <inertia ixx="9.9e-05" iyy="9.9e-05" izz="0.00019" ixy="-9.1e-05" iyz="-2e-06" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.102417 0.044765 -0.052963" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/arm_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.102417 0.044765 -0.052963" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/arm_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_4">
+  <inertial>
+    <origin xyz="0.0465063854534787 -0.06312158256047451 -0.009078858103444706" rpy="0 0 0"/>
+    <mass value="0.03987411557229608"/>
+    <inertia ixx="9.9e-05" iyy="9.9e-05" izz="0.00019" ixy="9.1e-05" iyz="-2e-06" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.00625 0.044765 -0.052963" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/arm_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.00625 0.044765 -0.052963" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/arm_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_1">
+  <inertial>
+    <origin xyz="-0.04650679514288587 0.06312187067482418 -0.009078858103443187" rpy="0 0 0"/>
+    <mass value="0.03987411557229608"/>
+    <inertia ixx="9.9e-05" iyy="9.9e-05" izz="0.00019" ixy="9.1e-05" iyz="2e-06" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.102417 -0.018168 -0.052963" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.102417 -0.018168 -0.052963" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_2">
+  <inertial>
+    <origin xyz="0.046504521772948414 0.06312373435535414 -0.009078858103445678" rpy="0 0 0"/>
+    <mass value="0.03987411557229608"/>
+    <inertia ixx="9.9e-05" iyy="9.9e-05" izz="0.00019" ixy="-9.1e-05" iyz="2e-06" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.00625 -0.018168 -0.052963" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/arm_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.00625 -0.018168 -0.052963" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/arm_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bottomplate_1">
+  <inertial>
+    <origin xyz="0.03203229233421663 0.046199198717949516 -0.0008005185094625035" rpy="0 0 0"/>
+    <mass value="0.020880309844134325"/>
+    <inertia ixx="1.6e-05" iyy="4.5e-05" izz="6.1e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.086366 0.059826 -0.016157" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/bottomplate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.086366 0.059826 -0.016157" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/bottomplate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="_Motor_4">
+  <inertial>
+    <origin xyz="2.266396532391024e-07 4.0393868960819646e-07 0.017191559032965237" rpy="0 0 0"/>
+    <mass value="0.05631681064168464"/>
+    <inertia ixx="1e-05" iyy="1e-05" izz="6e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.213235 -0.145613 -0.047707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/_Motor_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.213235 -0.145613 -0.047707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/_Motor_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="propeller_4">
+  <inertial>
+    <origin xyz="4.1516586807288647e-07 5.552286823362618e-07 -0.003826681205586116" rpy="0 0 0"/>
+    <mass value="0.03695381718216272"/>
+    <inertia ixx="6.8e-05" iyy="0.000105" izz="0.000172" ixy="-8.3e-05" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.213235 -0.145613 -0.091707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/propeller_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.213235 -0.145613 -0.091707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/propeller_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="propeller_3">
+  <inertial>
+    <origin xyz="2.3585635043621433e-07 -1.3506797066908938e-07 -0.003826681205590418" rpy="0 0 0"/>
+    <mass value="0.03695381718216272"/>
+    <inertia ixx="6.8e-05" iyy="0.000105" izz="0.000172" ixy="-8.3e-05" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.104578 -0.145603 -0.091707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/propeller_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.104578 -0.145603 -0.091707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/propeller_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="_Motor_3">
+  <inertial>
+    <origin xyz="5.5036814675113455e-08 -2.8742718391483457e-07 0.017191559032960407" rpy="0 0 0"/>
+    <mass value="0.05631681064168464"/>
+    <inertia ixx="1e-05" iyy="1e-05" izz="6e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.104578 -0.145603 -0.047707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/_Motor_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.104578 -0.145603 -0.047707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/_Motor_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="propeller_1">
+  <inertial>
+    <origin xyz="-6.455457598752989e-07 -5.768176738474295e-07 -0.0038266812055833127" rpy="0 0 0"/>
+    <mass value="0.03695381718216272"/>
+    <inertia ixx="6.8e-05" iyy="0.000105" izz="0.000172" ixy="-8.3e-05" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.213245 0.172199 -0.091707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/propeller_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.213245 0.172199 -0.091707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/propeller_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="propeller_2">
+  <inertial>
+    <origin xyz="5.160301551898616e-07 -2.9664387288241834e-07 -0.0037266812055875426" rpy="0 0 0"/>
+    <mass value="0.03695381718216272"/>
+    <inertia ixx="0.000105" iyy="6.8e-05" izz="0.000172" ixy="8.3e-05" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.104567 0.17221 -0.091707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/propeller_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.104567 0.17221 -0.091707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/propeller_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="_Motor_1">
+  <inertial>
+    <origin xyz="-4.6472622480808745e-07 -4.2445846148986277e-07 0.017191559032967735" rpy="0 0 0"/>
+    <mass value="0.05631681064168464"/>
+    <inertia ixx="1e-05" iyy="1e-05" izz="6e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.213245 0.172199 -0.047707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/_Motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.213245 0.172199 -0.047707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/_Motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="_Motor_2">
+  <inertial>
+    <origin xyz="3.6367094204126094e-07 -1.1582433770418454e-07 0.017191559032963377" rpy="0 0 0"/>
+    <mass value="0.05631681064168464"/>
+    <inertia ixx="1e-05" iyy="1e-05" izz="6e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.104567 0.17221 -0.047707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/_Motor_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.104567 0.17221 -0.047707" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/_Motor_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="battery_1">
+  <inertial>
+    <origin xyz="-0.08330868642242008 -0.0164722960708094 0.035413775071957525" rpy="0 0 0"/>
+    <mass value="1.3981527306598096"/>
+    <inertia ixx="0.000339" iyy="0.002654" izz="0.002848" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.014 -0.002858 0.00676" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/battery_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.014 -0.002858 0.00676" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/battery_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="case_1">
+  <inertial>
+    <origin xyz="0.0566978093645076 -0.05433289421942987 0.0909377126210428" rpy="0 0 0"/>
+    <mass value="0.06547177822909102"/>
+    <inertia ixx="6.9e-05" iyy="7.2e-05" izz="0.000111" ixy="0.0" iyz="-0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.108947 -0.041035 0.00601" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/case_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.108947 -0.041035 0.00601" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/case_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pixhawk_1">
+  <inertial>
+    <origin xyz="1.2732772420170901e-06 -3.5594498492066973e-07 0.007749585063141912" rpy="0 0 0"/>
+    <mass value="0.4511205515846654"/>
+    <inertia ixx="8.9e-05" iyy="0.000262" izz="0.000333" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.054334 0.013298 -0.054614" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/pixhawk_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.054334 0.013298 -0.054614" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/pixhawk_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="raspi5_1">
+  <inertial>
+    <origin xyz="0.00015243727343213637 5.323330193622404e-05 0.008499585063141663" rpy="0 0 0"/>
+    <mass value="0.6277288293218457"/>
+    <inertia ixx="0.000177" iyy="0.00039" izz="0.000536" ixy="2e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.054334 0.013298 -0.081814" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/raspi5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.054334 0.013298 -0.081814" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/raspi5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="optical_hybro_1">
+  <inertial>
+    <origin xyz="0.060491291297773885 -0.01431424849973715 0.00650921363963785" rpy="0 0 0"/>
+    <mass value="0.05550519941119164"/>
+    <inertia ixx="3e-06" iyy="5e-06" izz="6e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.052 -0.001258 -0.002495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/optical_hybro_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.052 -0.001258 -0.002495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/optical_hybro_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="cam_mount_1">
+  <inertial>
+    <origin xyz="0.13037709948445736 -0.015566013863293138 0.026148953586497454" rpy="0 0 0"/>
+    <mass value="0.061471309295761875"/>
+    <inertia ixx="1.3e-05" iyy="1.1e-05" izz="1.8e-05" ixy="-0.0" iyz="-0.0" ixz="-4e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0891 -0.002858 -0.002495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/cam_mount_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0891 -0.002858 -0.002495" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/cam_mount_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="2.9515529572504695e-07 -2.5608530274806585e-07 -0.010999529122995025" rpy="0 0 0"/>
+    <mass value="0.062344699999999996"/>
+    <inertia ixx="4e-06" iyy="4e-06" izz="4e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.051266 0.012861 -0.033156" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.051266 0.012861 -0.033156" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find skyrn_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 3" type="fixed">
+  <origin xyz="-0.102417 -0.044765 0.052963" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="arm_3"/>
+</joint>
+
+<joint name="Rigid 8" type="fixed">
+  <origin xyz="-0.00625 -0.044765 0.052963" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="arm_4"/>
+</joint>
+
+<joint name="Rigid 12" type="fixed">
+  <origin xyz="-0.102417 0.018168 0.052963" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="arm_1"/>
+</joint>
+
+<joint name="Rigid 15" type="fixed">
+  <origin xyz="-0.00625 0.018168 0.052963" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="arm_2"/>
+</joint>
+
+<joint name="Rigid 18" type="fixed">
+  <origin xyz="0.016051 -0.015061 -0.036806" rpy="0 0 0"/>
+  <parent link="arm_3"/>
+  <child link="bottomplate_1"/>
+</joint>
+
+<joint name="Rigid 19" type="fixed">
+  <origin xyz="-0.110818 0.127445 -0.005256" rpy="0 0 0"/>
+  <parent link="arm_1"/>
+  <child link="_Motor_4"/>
+</joint>
+
+<joint name="Revolute 20" type="continuous">
+  <origin xyz="0.0 0.0 0.044" rpy="0 0 0"/>
+  <parent link="_Motor_4"/>
+  <child link="propeller_4"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 21" type="continuous">
+  <origin xyz="0.0 0.0 0.044" rpy="0 0 0"/>
+  <parent link="_Motor_3"/>
+  <child link="propeller_3"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Rigid 22" type="fixed">
+  <origin xyz="0.110828 0.127435 -0.005256" rpy="0 0 0"/>
+  <parent link="arm_2"/>
+  <child link="_Motor_3"/>
+</joint>
+
+<joint name="Revolute 23" type="continuous">
+  <origin xyz="0.0 0.0 0.044" rpy="0 0 0"/>
+  <parent link="_Motor_1"/>
+  <child link="propeller_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 24" type="continuous">
+  <origin xyz="0.0 0.0 0.044" rpy="0 0 0"/>
+  <parent link="_Motor_2"/>
+  <child link="propeller_2"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Rigid 25" type="fixed">
+  <origin xyz="-0.110828 -0.127434 -0.005256" rpy="0 0 0"/>
+  <parent link="arm_3"/>
+  <child link="_Motor_1"/>
+</joint>
+
+<joint name="Rigid 26" type="fixed">
+  <origin xyz="0.110817 -0.127445 -0.005256" rpy="0 0 0"/>
+  <parent link="arm_4"/>
+  <child link="_Motor_2"/>
+</joint>
+
+<joint name="Rigid 38" type="fixed">
+  <origin xyz="0.100366 0.062684 -0.022917" rpy="0 0 0"/>
+  <parent link="bottomplate_1"/>
+  <child link="battery_1"/>
+</joint>
+
+<joint name="Rigid 39" type="fixed">
+  <origin xyz="-0.108947 0.041035 -0.00601" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="case_1"/>
+</joint>
+
+<joint name="Rigid 40" type="fixed">
+  <origin xyz="-0.054334 -0.013298 0.054614" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="pixhawk_1"/>
+</joint>
+
+<joint name="Rigid 41" type="fixed">
+  <origin xyz="0.054613 -0.054333 0.087824" rpy="0 0 0"/>
+  <parent link="case_1"/>
+  <child link="raspi5_1"/>
+</joint>
+
+<joint name="Rigid 42" type="fixed">
+  <origin xyz="0.034366 0.061084 -0.013662" rpy="0 0 0"/>
+  <parent link="bottomplate_1"/>
+  <child link="optical_hybro_1"/>
+</joint>
+
+<joint name="Rigid 45" type="fixed">
+  <origin xyz="-0.002734 0.062684 -0.013662" rpy="0 0 0"/>
+  <parent link="bottomplate_1"/>
+  <child link="cam_mount_1"/>
+</joint>
+
+<joint name="Rigid 46" type="fixed">
+  <origin xyz="0.140366 -0.015719 0.030661" rpy="0 0 0"/>
+  <parent link="cam_mount_1"/>
+  <child link="camera_1"/>
+</joint>
+
+</robot>
