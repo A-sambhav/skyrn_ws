@@ -114,6 +114,108 @@
   <gazebo reference="pixhawk_1">
     <material>${body_color}</material>
     <self_collide>false</self_collide>
+
+    <!-- ===================== -->
+    <!-- IMU Sensor -->
+    <!-- ===================== -->
+    <sensor name="pixhawk_imu" type="imu">
+      <always_on>true</always_on>
+      <update_rate>400</update_rate>
+      <visualize>false</visualize>
+
+      <imu>
+        <angular_velocity>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>0.0002</stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>0.0002</stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>0.0002</stddev>
+            </noise>
+          </z>
+        </angular_velocity>
+
+        <linear_acceleration>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>0.0004</stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>0.0004</stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>0.0004</stddev>
+            </noise>
+          </z>
+        </linear_acceleration>
+      </imu>
+    </sensor>
+    <!-- magnetometer-->
+    <!--<sensor name="magnetometer" type="magnetometer">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>false</visualize>
+
+      <magnetometer>
+        <noise type="gaussian">
+          <mean>0.0</mean>
+          <stddev>0.00001</stddev>
+        </noise>
+      </magnetometer>
+    </sensor>-->
+    <!-- GPS -->
+<!--    <sensor name="gps" type="gps">
+      <always_on>true</always_on>
+      <update_rate>5</update_rate>
+      <visualize>false</visualize>
+
+      <gps>
+        <position_sensing>
+          <horizontal>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.5</stddev>
+            </noise>
+          </horizontal>
+          <vertical>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>3.0</stddev>
+            </noise>
+          </vertical>
+        </position_sensing>
+      </gps>
+    </sensor>
+    <sensor name="optical_flow" type="optical_flow">
+      <always_on>true</always_on>
+      <update_rate>30</update_rate>
+      <visualize>false</visualize>
+
+      <optical_flow>
+        <noise type="gaussian">
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </optical_flow>
+    </sensor>-->
+
   </gazebo>
 
   <gazebo reference="raspi5_1">

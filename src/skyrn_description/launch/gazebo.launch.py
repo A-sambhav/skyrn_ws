@@ -18,9 +18,9 @@ def generate_launch_description():
         default_value = os.path.join(get_package_share_directory("skyrn_description"), "urdf", "skyrn_description.urdf.xacro"),
         description = "Absolute path to drone urdf file"
     )
-    
+
     robot_description = ParameterValue(Command(["xacro ", LaunchConfiguration("model"), " is_ignition:=", is_ignition]), value_type = str)
-    
+
     robot_state_publisher = Node(
         package = "robot_state_publisher",
         executable = "robot_state_publisher",
